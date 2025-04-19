@@ -1,86 +1,63 @@
 📚 Grammar Assessment Model
 🔍 Overview
-An automated system for evaluating spoken English grammar from audio recordings. Combines AssemblyAI for transcription and Google Gemini for consistent scoring on a 1–5 scale.
+The Grammar Assessment Model is an automated system for evaluating the grammar quality of spoken English from audio recordings.
+
+It integrates speech-to-text technology and advanced language models to deliver objective and consistent grammar scores on a 1–5 scale.
 
 ⚙️ Key Components
 🎙️ Audio Transcription Service
-Converts speech to text using AssemblyAI API
+Uses AssemblyAI API to convert audio speech to text
 
-Supported formats: WAV, MP3, M4A, AAC
+Supported formats: .wav, .mp3, .m4a, .aac
 
-Built-in error handling for failed/incomplete transcriptions
+Includes robust error handling for failed or incomplete transcriptions
 
 ✍️ Grammar Assessment Model
-Uses Google Gemini for natural language evaluation
+Powered by Google Gemini and AssemblyAI speech-to-text API for natural language evaluation
 
 Scoring Scale:
 
-scss
+pgsql
 Copy
 Edit
-1.0  – Very poor grammar
-1.5  – Poor grammar
-2.0  – Below average
-2.5  – Slightly below average
-3.0  – Average
-3.5  – Above average
-4.0  – Good
-4.5  – Very good
-5.0  – Excellent
-Example-based scoring for better consistency
+1.0 – Very poor grammar with many errors  
+1.5 – Poor grammar with significant errors  
+2.0 – Below average grammar with several errors  
+2.5 – Slightly below average grammar with some errors  
+3.0 – Average grammar with occasional errors  
+3.5 – Above average grammar with few errors  
+4.0 – Good grammar with minimal errors  
+4.5 – Very good grammar with almost no errors  
+5.0 – Excellent grammar with no errors  
+Utilizes example-based scoring for consistency
 
 🧩 Pipeline Architecture
 📂 Audio File Processing
-Validates audio files and format compatibility
+Scans and validates audio files
+
+Ensures format compatibility and file accessibility
 
 🔁 Transcription Processing
-Uploads and monitors status via AssemblyAI
+Uploads audio to AssemblyAI
+
+Monitors transcription status
 
 🧠 Grammar Assessment
-Sends transcription to Gemini
+Sends transcription to Gemini model
 
 Matches against reference examples
 
 Assigns final score
 
-📊 Results Management
-Stores scores/logs in CSV
+💾 Results Management
+Saves scores and logs to .csv files
 
 Computes metrics like RMSE and MAE
 
-📈 Score Distribution
+📊 Score Distribution
 
 Score Range	Approx. Share
-5.0	~45%
+5.0 (Excellent)	~45%
 4.0–4.9	~35%
 3.0–3.9	~15%
 1.0–2.9	~5%
-⚡ Highlights
-✅ Accurate transcription via AssemblyAI
-
-✅ Powerful grammar scoring via Gemini-2.0-flash
-
-✅ Consistent logic using reference benchmarks
-
-✅ Reproducible pipeline from input to output
-
-📊 Performance Analysis
-Based on assessment_results.csv with 204 audio samples:
-
-📌 Dataset Summary
-Total files processed: 204
-
-Score range: 1.0 to 5.0
-
-Mean score: 4.15
-
-Median score: 4.5
-
-Standard deviation: 0.98
-
-📐 Metrics
-RMSE: 0.3655
-
-MAE: 0.2672
-
-⚖️ The model typically predicts within ±0.37 points of the true score and maintains high reliability—suitable for both educational and professional applications.
